@@ -9,11 +9,18 @@
 
 # Installation:
 
+Clone the project repo
+`$ git clone https://github.com/ph-puregold-shopping-python.git`
+`$ cd ph-puregold-shopping-python`
+
 Create Virtual env:
-`python3 -m venv venv`
+`$ python3 -m venv venv`
+
+Acticate venv:
+`$ . venv/bin/activate`
 
 Install dependencies
-`pip3 install -r requirements.txt`
+`$ pip3 install -r requirements.txt`
 
 # Run local
 `$ ./run_local.sh`

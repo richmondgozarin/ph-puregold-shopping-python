@@ -22,6 +22,7 @@ class ShoppingListApi(Resource):
                 obj = {
                     'id': shoppingList.id,
                     'store_name': shoppingList.store_name,
+                    'items': shoppingList.items,
                     'date_created': shoppingList.date_created,
                     'date_modified': shoppingList.date_modified
                 }
@@ -40,6 +41,7 @@ class ShoppingListApi(Resource):
             response = jsonify({
                 'id': shoppingListData.id,
                 'store_name': shoppingListData.store_name,
+                'items': shoppingListData.items,
                 'date_created': shoppingListData.date_created,
                 'date_modified': shoppingListData.date_modified
             })
@@ -57,6 +59,7 @@ class ShoppingListApi(Resource):
             response = jsonify({
                 'id': shoppingListData.id,
                 'store_name': shoppingListData.store_name,
+                'items': shoppingListData.items,
                 'date_created': shoppingListData.date_created,
                 'date_modified': shoppingListData.date_modified
             })
@@ -65,7 +68,7 @@ class ShoppingListApi(Resource):
             abort(204, message="No store name provided")
         return response  
     
-    def delete(self, id):
+    def delete(self, id=None):
         ShoppingList.delete(id)
         return '', 200
 

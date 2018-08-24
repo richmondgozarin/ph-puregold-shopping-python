@@ -4,9 +4,6 @@ from flask_restful import Resource, Api, reqparse, abort
 from app.models.shopping_list_models import ShoppingListModel
 # from app.models.shopping_item_models import ShoppingItemModel
 
-# todo: move to sqlalchemy 
-shoppings = {'shopping1': {'item': 'shopping 1'}}
-
 
 def abort_if_shopping_doesnt_exist(shopping_id):
     if shopping_id not in shoppings:

@@ -80,7 +80,7 @@ class ShoppingItemApi(Resource):
     
     def post(self):
         args = parser.parse_args()
-        quantity = str(request.data.get('quantity', ''))
+        quantity = int(request.data.get('quantity', 0))
         item_name = str(request.data.get('item_name', ''))
 
         if item_name:

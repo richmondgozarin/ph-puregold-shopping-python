@@ -24,8 +24,9 @@ def create_app(config_name):
     # Actuall setup the Api resource routing here
     api.add_resource(ShoppingListApi, 
         '/shopping',  
-        '/shopping/<store_name>',
-        endpoint='shoppinglist')
-    api.add_resource(ShoppingItemApi, '/item/<shopping_id>',  endpoint='shopping')
+        '/shopping/<shopping_id>')
+    api.add_resource(ShoppingItemApi, 
+        '/item',
+        '/item/<shopping_id>')
 
     return app

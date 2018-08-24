@@ -5,15 +5,13 @@ class ShoppingList(db.Model):
 
     __tablename__ = 'shoppinglists'
 
-    id = db.Column(db.Integer, primary_key=True)
+    shopping_id = db.Column(db.Integer, primary_key=True)
     store_name = db.Column(db.String(255))
     date_created = db.Column(db.DateTime, default=db.func.current_timestamp())
     date_modified = db.Column(
         db.DateTime, default=db.func.current_timestamp(),
         onupdate=db.func.current_timestamp())
 
-    item_id = db.Column(db.Integer, db.ForeignKey('item.id'),
-        nullable=False)
     items = db.relationship('Item', backref=db.backref('shoppinglists', lazy=True))
 
     def __init__(self, name):
@@ -34,7 +32,16 @@ class ShoppingList(db.Model):
     
     @staticmethod
     def get_by_store_name(store_name):
-        return ShoppingList.query.filter_by(store_name=store_name).first()
+        return ShoppingList.query.filter_by(store_name=store_name)
+    
+    @staticmethod
+    def get_by_id(shopping_id):
+        return ShoppingList.query.filter_by(shopping_id=shopping_id).first()
+
+    @staticmethod
+    def get_all_by_id(shopping_id):
+        return ShoppingList.query.filter_by(shopping_id=shopping_id)
+
 
     def delete(self):
         db.session.delete(self)

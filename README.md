@@ -30,3 +30,4 @@ Integrate SQL-Alchemy
 
 Resources:
 https://flask-restful.readthedocs.io/en/latest/quickstart.html
+http://flask-sqlalchemy.pocoo.org/2.1/quickstart/#

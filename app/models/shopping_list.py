@@ -1,6 +1,6 @@
 from app import db
 
-class shoppingListModel(db.Model):
+class ShoppingList(db.Model):
     """This class represents the shoppinglist table."""
 
     __tablename__ = 'shoppinglists'

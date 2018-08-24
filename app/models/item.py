@@ -1,9 +1,9 @@
 from app import db
 
-class ShoppingItemModel(db.Model):
-    """This class represents the shoppingitem table."""
+class Item(db.Model):
+    """This class represents the item table."""
 
-    __tablename__ = 'shoppingitems'
+    __tablename__ = 'items'
 
     id = db.Column(db.Integer, primary_key=True)
     quantity = db.Column(db.Integer)
@@ -23,7 +23,7 @@ class ShoppingItemModel(db.Model):
 
     @staticmethod
     def get_all():
-        return ShoppingItem.query.all()
+        return Item.query.all()
 
     def delete(self):
         db.session.delete(self)

@@ -109,17 +109,19 @@ class ShoppingListApi(Resource):
                 "error_message": "Shopping Id does not exist."
             })
             response.status_code = 302
-            return response
-        
+            return response      
 
 
 # ShoppingItemApi
 # shows a list of all shopping item records, 
 # and lets you POST to shopping item
 class ShoppingItemApi(Resource):
-    def get(self):
-        
-        items = Item.get_all()
+    def get(self, item_id=None):
+        if item_id != None:
+            items = Item.get_all_by_id(item_id)
+        else:
+            items = Item.get_all()
+
         results = []
         for item in items:
             obj = {

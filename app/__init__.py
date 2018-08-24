@@ -27,6 +27,6 @@ def create_app(config_name):
         '/shopping/<shopping_id>')
     api.add_resource(ShoppingItemApi, 
         '/item',
-        '/item/<shopping_id>')
+        '/item/<item_id>')
 
     return app

@@ -29,6 +29,10 @@ class Item(db.Model):
         return Item.query.all()
 
     @staticmethod
+    def get_all_by_id(item_id):
+        return Item.query.filter_by(item_id=item_id)
+
+    @staticmethod
     def get_item(shopping_id, item_name):
         return Item.query.filter_by(shopping_id=shopping_id, item_name=item_name).first()
 

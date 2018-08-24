@@ -19,10 +19,13 @@ def create_app(config_name):
     db.init_app(app)
 
     # Import Api after db initialization
-    from app.apis.api import ShoppingApi, ShoppingListApi
+    from app.apis.api import ShoppingListApi, ShoppingItemApi
     
     # Actuall setup the Api resource routing here
-    api.add_resource(ShoppingListApi, '/shoppings',  endpoint='shoppinglist')
-    api.add_resource(ShoppingApi, '/shoppings/<shopping_id>',  endpoint='shopping')
+    api.add_resource(ShoppingListApi, 
+        '/shopping',  
+        '/shopping/<store_name>',
+        endpoint='shoppinglist')
+    api.add_resource(ShoppingItemApi, '/item/<shopping_id>',  endpoint='shopping')
 
     return app

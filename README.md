@@ -34,12 +34,18 @@ Install dependencies
 # Endpoints:
 
 List - `http://127.0.0.1:5000/shoppings`
+
 View - `http://127.0.0.1:5000/shoppings/<shopping_id>`
+
 Post - `http://127.0.0.1:5000/shoppings`
+
 Put  - `http://127.0.0.1:5000/shoppings/<shopping_id>`
+
 Delete - `http://127.0.0.1:5000/shoppings/<shopping_id>` 
 
+
 TODO:
+
 Integrate SQL-Alchemy
 
 Resources:

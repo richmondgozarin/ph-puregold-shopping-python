@@ -1,0 +1,4 @@
+flask
+flask-restful
+flask-api
+flask-sqlalchemy

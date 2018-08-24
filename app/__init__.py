@@ -21,12 +21,11 @@ def create_app(config_name):
     # Import Api after db initialization
     from app.apis.api import ShoppingListApi, ShoppingItemApi
     
-    # Actuall setup the Api resource routing here
+    # Actual setup the Api resource routing here
     api.add_resource(ShoppingListApi, 
         '/shopping',  
         '/shopping/<shopping_id>')
     api.add_resource(ShoppingItemApi, 
-        '/item',
-        '/item/<item_id>')
+        '/shopping/<int:shopping_id>/item')
 
     return app

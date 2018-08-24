@@ -42,7 +42,7 @@ class ShoppingListApi(Resource):
         return response
     
     def post(self):
-        store_name = str(request.data.get('store_name', ''))
+        store_name = str(request.get_json().get('store_name', ''))
         
         if store_name:
             shoppingList = ShoppingList(name=store_name)
@@ -65,7 +65,7 @@ class ShoppingListApi(Resource):
 
     def put(self, shopping_id=None):
             
-        store_name = str(request.data.get('store_name', ''))
+        store_name = str(request.get_json().get('store_name', ''))
 
         if shopping_id:
             shopping_items = []
@@ -116,9 +116,9 @@ class ShoppingListApi(Resource):
 # shows a list of all shopping item records, 
 # and lets you POST to shopping item
 class ShoppingItemApi(Resource):
-    def get(self, item_id=None):
-        if item_id != None:
-            items = Item.get_all_by_id(item_id)
+    def get(self, shopping_id=None):
+        if shopping_id != None:
+            items = Item.get_all_by_id(shopping_id)
         else:
             items = Item.get_all()
 
@@ -137,8 +137,8 @@ class ShoppingItemApi(Resource):
         return response
 
     def post(self, shopping_id=None):
-        quantity = int(request.data.get('quantity', 0))
-        item_name = str(request.data.get('item_name', ''))
+        quantity = int(request.get_json().get('quantity', 0))
+        item_name = str(request.get_json().get('item_name', ''))
 
         if shopping_id != None and item_name != None and quantity != 0:
             item = Item(name=item_name)

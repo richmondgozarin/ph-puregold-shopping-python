@@ -24,8 +24,7 @@ class ShoppingListApi(Resource):
                     'id': item.item_id,
                     'quantity': item.quantity,
                     'item_name': item.item_name,
-                    'date_created': item.date_created,
-                    'shopping_id': item.shopping_id
+                    'date_created': item.date_created
                 }
                 shopping_items.append(obj_item)
 
@@ -77,8 +76,7 @@ class ShoppingListApi(Resource):
                     'id': item.item_id,
                     'quantity': item.quantity,
                     'item_name': item.item_name,
-                    'date_created': item.date_created,
-                    'shopping_id': item.shopping_id
+                    'date_created': item.date_created
                 }
                 shopping_items.append(obj_item)
                 
